@@ -9,7 +9,22 @@ import {faker} from '@faker-js/faker'
 })
 export class AppComponent {
   randomText: string = faker.lorem.paragraph();
-  onChangeInput(text:string){
-    console.log(text)
+  // result: boolean = false;
+  inputText: string = '';
+
+  onChangeInput(text: string) {
+    /*   if (text === this.randomText) {
+         this.result = true;
+       } else {
+         this.result = false;
+       }*/
+    this.inputText = text;
+  }
+
+  compare(letterRandom: string, letterEnter: string): string {
+    if (!letterEnter) {
+      return "pending";
+    }
+    return letterRandom === letterEnter ? 'correct' : 'incorrect';
   }
 }
